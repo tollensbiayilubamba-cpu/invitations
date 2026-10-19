@@ -3,90 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitation de Tony</title>
-
+    <title>Mon Invitation</title>
     <style>
         body {
-            margin: 0;
-            font-family: Georgia, serif;
-            background: #f7f1e8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             text-align: center;
+            max-width: 500px;
+            width: 90%;
         }
-
-        .invitation {
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 50px 25px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
-        }
-
         h1 {
-            font-size: 38px;
+            color: #4a5568;
             margin-bottom: 10px;
         }
-
-        .nom {
-            font-size: 32px;
-            margin: 25px 0;
+        .subtitle {
+            font-size: 1.1em;
+            color: #718096;
+            margin-bottom: 30px;
         }
-
         .details {
-            font-size: 18px;
-            line-height: 1.8;
-            margin: 30px 0;
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: left;
         }
-
-        .bouton {
+        .details p {
+            margin: 10px 0;
+            font-size: 1.05em;
+        }
+        .btn {
             display: inline-block;
-            padding: 14px 25px;
-            margin: 8px;
-            background: #333;
+            background: #48bb78;
             color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
             text-decoration: none;
-            border-radius: 30px;
+            font-weight: bold;
+            transition: background 0.3s ease;
         }
-
-        .bouton:hover {
-            opacity: 0.8;
+        .btn:hover {
+            background: #38a169;
         }
     </style>
 </head>
-
 <body>
 
-<div class="invitation">
+    <div class="card">
+        <h1>Vous êtes invité ! 🎉</h1>
+        <p class="subtitle">C'est un grand plaisir de vous convier à notre événement.</p>
+        
+        <div class="details">
+            <p><strong>📅 Date :</strong> Samedi prochain à 18h00</p>
+            <p><strong>📍 Lieu :</strong> 123 Avenue de la République</p>
+            <p><strong>✨ Occasion :</strong> Fête d'essai / Célébration</p>
+        </div>
 
-    <p>✨ VOUS ÊTES NOTRE INVITÉ(E) SPÉCIAL(E) ✨</p>
-
-    <h1>Invitation</h1>
-
-    <div class="nom">
-        Mr TONY
+        <p>Merci de bien vouloir confirmer votre présence en cliquant ci-dessous :</p>
+        
+        <!-- Remplace le lien '#' par le lien de ton Google Forms ou laisse-le pour l'essai -->
+        <a href="#" class="btn">Je confirme ma présence</a>
     </div>
-
-    <p>
-        Nous avons le plaisir de vous inviter à partager
-        avec nous ce moment exceptionnel.
-    </p>
-
-    <div class="details">
-        📅 Samedi 24 octobre 2026<br>
-        🕒 15h00<br>
-        📍 Lubumbashi
-    </div>
-
-    <a class="bouton" href="#">
-        Confirmer ma présence
-    </a>
-
-    <a class="bouton" href="#">
-        📍 Voir l'itinéraire
-    </a>
-
-</div>
 
 </body>
 </html>
