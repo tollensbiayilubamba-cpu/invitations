@@ -38,6 +38,18 @@
             box-sizing: border-box;
         }
 
+        .guest-badge {
+            display: inline-block;
+            background: #fdfbf7;
+            border: 1px solid var(--primary-gold);
+            color: var(--dark-gold);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
         .header-subtitle {
             text-transform: uppercase;
             letter-spacing: 3px;
@@ -144,6 +156,8 @@
             font-weight: 600;
             font-size: 0.95em;
             transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
         }
 
         .btn-primary {
@@ -164,11 +178,31 @@
             color: #999;
             font-style: italic;
         }
+
+        /* Cacher les boutons lors de l'impression PDF */
+        @media print {
+            .btn-group, .footer-note {
+                display: none;
+            }
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                border: none;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- Zone affichant le nom personnalisé de l'invité -->
+        <div id="guest-name-container" style="display: none;">
+            <div class="guest-badge">✉️ Invitation spéciale pour : <span id="guest-name"></span></div>
+        </div>
+
         <div class="header-subtitle">Mariage de</div>
         <div class="names">Tony & Lisa</div>
         <div class="date-header">Samedi 16 Janvier 2027</div>
@@ -214,11 +248,17 @@
 
         <!-- Boutons d'action -->
         <div class="btn-group">
-            <!-- Lien vers le formulaire Google Forms de confirmation -->
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-VOTRE_FORMULAIRE/viewform" target="_blank" class="btn btn-primary" id="rsvp-btn">
+            <!-- Bouton pour remplir le formulaire -->
+            <a href="https://forms.google.com" target="_blank" class="btn btn-primary" id="rsvp-btn">
                 ✍️ Confirmer ma présence (RSVP)
             </a>
-            <!-- Lien Google Maps (à mettre à jour quand le lieu sera défini) -->
+
+            <!-- Bouton pour Télécharger / Imprimer en PDF -->
+            <button onclick="window.print()" class="btn btn-secondary">
+                📄 Télécharger / Enregistrer en PDF
+            </button>
+
+            <!-- Bouton Google Maps -->
             <a href="https://maps.google.com" target="_blank" class="btn btn-secondary">
                 📍 Voir la localisation sur la carte
             </a>
@@ -229,9 +269,16 @@
         </div>
     </div>
 
-    <!-- Script pour le Compte à Rebours configuré au 16 Janvier 2027 -->
     <script>
-        // Date exacte : 16 Janvier 2027 à 10h00 (Le mois 0 correspond à Janvier)
+        // 1. Script pour récupérer le nom dans l'URL (ex: ?nom=M.+Kabamba)
+        const urlParams = new URLSearchParams(window.location.search);
+        const guestName = urlParams.get('nom');
+        if (guestName) {
+            document.getElementById('guest-name').innerText = decodeURIComponent(guestName);
+            document.getElementById('guest-name-container').style.display = 'block';
+        }
+
+        // 2. Script pour le Compte à Rebours (16 Janvier 2027)
         const weddingDate = new Date(2027, 0, 16, 10, 0, 0).getTime();
 
         const countdownFunction = setInterval(function() {
