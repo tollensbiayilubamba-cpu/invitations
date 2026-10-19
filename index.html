@@ -3,79 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Invitation</title>
+    <title>Mariage - Tony & Lisa</title>
+    <!-- Police élégante Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-gold: #c5a059;
+            --dark-gold: #a37f3f;
+            --bg-color: #faf8f5;
+            --text-color: #2c2c2c;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
-            padding: 0;
+            padding: 20px 10px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
         }
-        .card {
+
+        .container {
             background: #ffffff;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border-radius: 20px;
+            padding: 40px 25px;
+            max-width: 550px;
+            width: 100%;
+            box-shadow: 0 15px 35px rgba(197, 160, 89, 0.15);
+            border: 1px solid rgba(197, 160, 89, 0.3);
             text-align: center;
-            max-width: 500px;
-            width: 90%;
+            box-sizing: border-box;
         }
-        h1 {
-            color: #4a5568;
+
+        .header-subtitle {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85em;
+            color: var(--primary-gold);
             margin-bottom: 10px;
         }
-        .subtitle {
-            font-size: 1.1em;
-            color: #718096;
-            margin-bottom: 30px;
-        }
-        .details {
-            background: #f7fafc;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            text-align: left;
-        }
-        .details p {
+
+        .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5em;
+            color: var(--primary-gold);
             margin: 10px 0;
-            font-size: 1.05em;
+            line-height: 1.2;
         }
+
+        .date-header {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--dark-gold);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .intro-text {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* Compte à rebours */
+        .countdown {
+            display: flex;
+            justify-content: space-around;
+            background: #fdfbf7;
+            padding: 15px 10px;
+            border-radius: 12px;
+            border: 1px dashed var(--primary-gold);
+            margin-bottom: 30px;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: var(--primary-gold);
+        }
+
+        .countdown-label {
+            font-size: 0.75em;
+            text-transform: uppercase;
+            color: #888;
+        }
+
+        /* Programme */
+        .program-title {
+            font-size: 1.2em;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .event-card {
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            text-align: left;
+            border-left: 4px solid var(--primary-gold);
+        }
+
+        .event-card h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.1em;
+            color: var(--text-color);
+        }
+
+        .event-card p {
+            margin: 3px 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        /* Boutons */
+        .btn-group {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
         .btn {
-            display: inline-block;
-            background: #48bb78;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
+            display: block;
+            padding: 14px 20px;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s ease;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
         }
-        .btn:hover {
-            background: #38a169;
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: white;
+            box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-gold);
+            border: 1.5px solid var(--primary-gold);
+        }
+
+        .footer-note {
+            margin-top: 30px;
+            font-size: 0.8em;
+            color: #999;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <h1>Vous êtes invité ! 🎉</h1>
-        <p class="subtitle">C'est un grand plaisir de vous convier à notre événement.</p>
+    <div class="container">
+        <div class="header-subtitle">Mariage de</div>
+        <div class="names">Tony & Lisa</div>
+        <div class="date-header">Samedi 16 Janvier 2027</div>
         
-        <div class="details">
-            <p><strong>📅 Date :</strong> Samedi prochain à 18h00</p>
-            <p><strong>📍 Lieu :</strong> 123 Avenue de la République</p>
-            <p><strong>✨ Occasion :</strong> Fête d'essai / Célébration</p>
+        <p class="intro-text">
+            Deux âmes, un seul cœur. Nous serions honorés de vous compter parmi nous pour célébrer notre union.
+        </p>
+
+        <!-- Compte à rebours -->
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">00</div>
+                <div class="countdown-label">Jours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">00</div>
+                <div class="countdown-label">Heures</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-label">Min</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">00</div>
+                <div class="countdown-label">Sec</div>
+            </div>
         </div>
 
-        <p>Merci de bien vouloir confirmer votre présence en cliquant ci-dessous :</p>
-        
-        <a href="#" class="btn">Je confirme ma présence</a>
+        <!-- Programme -->
+        <div class="program-title">Programme de la journée</div>
+
+        <div class="event-card">
+            <h3>💒 Cérémonie Religieuse</h3>
+            <p><strong>Heure :</strong> 10h00</p>
+            <p><strong>Lieu :</strong> À préciser</p>
+        </div>
+
+        <div class="event-card">
+            <h3>🎉 Réception & Soirée</h3>
+            <p><strong>Heure :</strong> 17h00</p>
+            <p><strong>Lieu :</strong> À préciser</p>
+        </div>
+
+        <!-- Boutons d'action -->
+        <div class="btn-group">
+            <!-- Lien vers le formulaire Google Forms de confirmation -->
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-VOTRE_FORMULAIRE/viewform" target="_blank" class="btn btn-primary" id="rsvp-btn">
+                ✍️ Confirmer ma présence (RSVP)
+            </a>
+            <!-- Lien Google Maps (à mettre à jour quand le lieu sera défini) -->
+            <a href="https://maps.google.com" target="_blank" class="btn btn-secondary">
+                📍 Voir la localisation sur la carte
+            </a>
+        </div>
+
+        <div class="footer-note">
+            Merci de bien vouloir confirmer votre présence avant le 20 Décembre 2026.
+        </div>
     </div>
 
+    <!-- Script pour le Compte à Rebours configuré au 16 Janvier 2027 -->
+    <script>
+        // Date exacte : 16 Janvier 2027 à 10h00 (Le mois 0 correspond à Janvier)
+        const weddingDate = new Date(2027, 0, 16, 10, 0, 0).getTime();
+
+        const countdownFunction = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.querySelector('.countdown').innerHTML = "<b style='color:var(--primary-gold)'>C'est le grand jour ! 🎉</b>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+        }, 1000);
+    </script>
 </body>
 </html>
