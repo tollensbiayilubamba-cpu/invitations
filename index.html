@@ -179,7 +179,6 @@
             font-style: italic;
         }
 
-        /* Cacher les boutons lors de l'impression PDF */
         @media print {
             .btn-group, .footer-note {
                 display: none;
@@ -198,7 +197,7 @@
 <body>
 
     <div class="container">
-        <!-- Zone affichant le nom personnalisé de l'invité -->
+        <!-- Zone affichant le nom personnalisé de l'invité s'il est spécifié dans l'URL -->
         <div id="guest-name-container" style="display: none;">
             <div class="guest-badge">✉️ Invitation spéciale pour : <span id="guest-name"></span></div>
         </div>
@@ -248,12 +247,12 @@
 
         <!-- Boutons d'action -->
         <div class="btn-group">
-            <!-- Bouton pour remplir le formulaire -->
-            <a href="https://forms.google.com" target="_blank" class="btn btn-primary" id="rsvp-btn">
+            <!-- Bouton RSVP avec votre Google Form -->
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfCvQasjy1e-knS6eGmiCz8YYaNznZUNF8oDnXH-k5ipXBzFg/viewform" target="_blank" class="btn btn-primary" id="rsvp-btn">
                 ✍️ Confirmer ma présence (RSVP)
             </a>
 
-            <!-- Bouton pour Télécharger / Imprimer en PDF -->
+            <!-- Bouton Téléchargement / Impression PDF -->
             <button onclick="window.print()" class="btn btn-secondary">
                 📄 Télécharger / Enregistrer en PDF
             </button>
